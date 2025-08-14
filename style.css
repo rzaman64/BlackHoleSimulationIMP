@@ -1,0 +1,173 @@
+body {
+  background-color: #000;
+  margin: 0px;
+  overflow: hidden;
+
+  color: #fff;
+  font-family: Monospace;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.info {
+  text-align: center;
+
+  position: absolute;
+  padding: 10px;
+  width: 100%;
+  text-align: center;
+  color: #ffffff;
+}
+
+.link-bar {
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+  text-align: center;
+}
+
+#loader {
+  margin-top: 20%;
+}
+
+.disclaimer {
+  margin-top: 1em;
+  color: gray;
+}
+
+#hint-text {
+  position: absolute;
+  /*right: 270px;*/
+  width: 100%;
+  top: 10px;
+  text-align: center;
+  font-weight: normal;
+  color: #cccccc;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #cccccc;
+}
+
+.initially-hidden {
+  visibility: hidden;
+}
+
+@media screen and (max-width: 800px) {
+  .hidden-phone {
+    visibility: hidden;
+  }
+}
+
+/* Stop dat.GUI from floating to the right */
+.dg.a {
+  float: none !important;
+  margin-right: 0 !important;
+}
+
+/* Pin the actual panel (.dg.main) to top-left with breathing room */
+.dg.main {
+  position: fixed !important;
+  left: 16px !important; /* gap from the left */
+  top: 48px !important; /* below FPS */
+  z-index: 10000 !important;
+  padding: 10px !important;
+  border-radius: 16px !important;
+  background: transparent !important; /* we'll render bg via ::before */
+  isolation: isolate !important; /* keep bg layer under rows */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25) !important;
+}
+
+/* Glassmorphism background for the panel */
+.dg.main::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  background: rgba(20, 20, 28, 0.3); /* fallback tint */
+  -webkit-backdrop-filter: blur(14px) saturate(1.2);
+  backdrop-filter: blur(14px) saturate(1.2);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Raise panel content above the glass layer */
+.dg.main > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Transparent rows/titles so the glass shows through */
+.dg.main li:not(.folder),
+.dg.main .title,
+.dg.main .folder .title {
+  background: transparent !important;
+  border: 0 !important;
+}
+.dg.main .cr:hover {
+  background: rgba(255, 255, 255, 0.06) !important;
+}
+
+/* Inputs & sliders – minimal look */
+.dg.main .c input[type="text"],
+.dg.main .c select {
+  background: rgba(0, 0, 0, 0.35) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  color: #f1f5f9 !important;
+  height: 24px !important;
+  border-radius: 8px !important;
+  outline: none !important;
+}
+.dg.main .c .slider {
+  background: rgba(255, 255, 255, 0.14) !important;
+  height: 6px !important;
+  border-radius: 999px !important;
+}
+.dg.main .c .slider-fg {
+  background: rgba(255, 255, 255, 0.75) !important;
+  border-radius: 999px !important;
+}
+
+/* Hide scrollbar on dat.GUI */
+.dg.main {
+  overflow: hidden !important;
+}
+
+/* Optional: if content ever overflows, allow scrolling inside folders only */
+.dg.main .folder {
+  overflow: auto !important;
+}
+
+/* Remove the "Close Controls" button in dat.GUI */
+.dg.main .close-button {
+  display: none !important;
+}
+
+/* Increase row height so inputs aren't cut off */
+.dg.main .cr {
+  min-height: 28px !important; /* default is ~25px, bump it up */
+  padding-top: 4px !important;
+  padding-bottom: 4px !important;
+}
+
+/* Give text/number inputs breathing room */
+.dg.main .c input[type="text"],
+.dg.main .c select {
+  height: 28px !important;
+  line-height: 28px !important;
+  padding: 0 6px !important;
+  font-size: 13px !important;
+  box-sizing: border-box !important;
+}
+
+/* Ensure slider cells have enough vertical space */
+.dg.main .c .slider {
+  margin-top: 6px !important;
+  margin-bottom: 6px !important;
+}
