@@ -25,7 +25,7 @@ A minimal, real-time WebGL/Three.js visualization of a **Schwarzschild** black h
 
 ## How it works (physics overview)
 
-> Full derivations are summarized from the attached `physics.pdf`.
+> Full derivations are summarized from the attached `physics.pdf` within this repo.
 - **Null geodesics in Schwarzschild spacetime**  
   For each pixel, a photon path is traced by integrating the (dimensionless) equation for $$\(u(\phi)=1/r\)$$:
   $$\[
