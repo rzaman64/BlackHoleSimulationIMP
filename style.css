@@ -171,3 +171,7 @@ a:hover {
   margin-top: 6px !important;
   margin-bottom: 6px !important;
 }
+
+.link-bar {
+  display: none !important;
+}
